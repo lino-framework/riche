@@ -21,7 +21,7 @@ from lino.modlib.office.roles import OfficeUser
 class UserDetail(UserDetail):
     """Layout of User Detail in Lino Noi."""
 
-    main = "general contact calendar dashboard.WidgetsByUser"
+    main = "general contact #calendar dashboard.WidgetsByUser"
 
     general = dd.Panel("""
     box1:45 clocking:15
@@ -36,11 +36,11 @@ class UserDetail(UserDetail):
     else:
         clocking = dd.DummyPanel()
 
-    calendar = dd.Panel("""
-    event_type access_class
-    cal.SubscriptionsByUser
-    # cal.MembershipsByUser
-    """, label=dd.plugins.cal.verbose_name, required_roles=dd.login_required(OfficeUser))
+    # calendar = dd.Panel("""
+    # event_type access_class
+    # cal.SubscriptionsByUser
+    # # cal.MembershipsByUser
+    # """, label=dd.plugins.cal.verbose_name, required_roles=dd.login_required(OfficeUser))
 
 
     # tickets = dd.Panel("""

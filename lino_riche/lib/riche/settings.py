@@ -53,8 +53,8 @@ class Site(Site):
         # yield 'lino.modlib.users'
         yield 'lino_riche.lib.contacts'
         yield 'lino_riche.lib.users'
-        yield 'lino_riche.lib.cal'
-        yield 'lino_xl.lib.extensible'
+        # yield 'lino_riche.lib.cal'
+        # yield 'lino_xl.lib.extensible'
         # yield 'lino_riche.lib.courses'
         # yield 'lino_riche.lib.products'
 
