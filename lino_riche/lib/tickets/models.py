@@ -44,7 +44,7 @@ class TicketDetail(TicketDetail):
     """, label=_("General"))
 
     general1 = """
-    summary:40 id:6 
+    summary:40 ticket_type id:6
     user:12 end_user:12 deadline
     site #topic project
     workflow_buttons:30 #private
@@ -61,6 +61,12 @@ class TicketDetail(TicketDetail):
     description:30 upgrade_notes:20 LinksByTicket:20  
     """, label=_("More"))
 
+    more1 = """
+    #nickname:10     created modified reported_for #fixed_for #ticket_type:10
+    state ref duplicate_of planned_time priority
+    # standby feedback closed
+    """
+
     more2 = dd.Panel("""
     # deploy.DeploymentsByTicket
     uploads.UploadsByController
@@ -75,4 +81,5 @@ Tickets.detail_layout = TicketDetail()
 # """
 
 
+from .ui import *
 
