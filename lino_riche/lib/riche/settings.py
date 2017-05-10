@@ -65,7 +65,7 @@ class Site(Site):
         # yield 'lino_xl.lib.deploy'
         yield 'lino_riche.lib.clocking'
         yield 'lino_xl.lib.lists'
-        yield 'lino_xl.lib.blogs'
+        # yield 'lino_xl.lib.blogs'
 
         yield 'lino.modlib.changes'
         yield 'lino.modlib.notify'
