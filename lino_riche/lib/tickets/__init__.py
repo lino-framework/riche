@@ -16,6 +16,7 @@ from lino_xl.lib.tickets import *
 class Plugin(Plugin):
     """Adds the :mod:`lino_xl.lib.votes` plugin.
     """
+    site_model = 'tickets.Site'
 
     needs_plugins = [
         'lino_xl.lib.excerpts',

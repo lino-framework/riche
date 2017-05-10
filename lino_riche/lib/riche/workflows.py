@@ -22,7 +22,7 @@ block, otherwise we use the more widely supported symbols from
 """
 
 from lino_noi.lib.tickets.workflows import *
-from lino_xl.lib.cal.workflows.voga import *
+#from lino_xl.lib.cal.workflows.voga import *
 # from lino_xl.lib.courses.workflows import *
-from lino_xl.lib.meetings.workflows import *
+#from lino_xl.lib.meetings.workflows import *
 

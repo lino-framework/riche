@@ -9,7 +9,27 @@ Defines a customized :class:`TicketDetail`.
 """
 
 from lino_xl.lib.tickets.models import *
-from lino.api import _
+from lino.api import _, pgettext
+
+Project._meta.verbose_name = _("Project")
+
+
+@dd.python_2_unicode_compatible
+class Site(dd.Model):
+    class Meta:
+        app_label = 'tickets'
+        verbose_name = pgettext("Ticketing", "Site")
+        verbose_name_plural = pgettext("Ticketing", "Sites")
+
+    partner = dd.ForeignKey('contacts.Partner', blank=True, null=True)
+    # responsible_user = dd.ForeignKey(
+    #     'users.User', verbose_name=_("Responsible"),
+    #     blank=True, null=True)
+    name = models.CharField(_("Designation"), max_length=200)
+    remark = models.CharField(_("Remark"), max_length=200, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class TicketDetail(TicketDetail):
@@ -26,14 +46,14 @@ class TicketDetail(TicketDetail):
     general1 = """
     summary:40 id:6 
     user:12 end_user:12 deadline
-    site topic project 
-    workflow_buttons:30 private
+    site #topic project
+    workflow_buttons:30 #private
     bottom_box
     """
 
     bottom_box = """
     faculties.DemandsByDemander:20 votes.VotesByVotable:20 
-    deploy.DeploymentsByTicket:20 clocking.SessionsByTicket:20
+    #deploy.DeploymentsByTicket:20 clocking.SessionsByTicket:20
     """
 
     more = dd.Panel("""

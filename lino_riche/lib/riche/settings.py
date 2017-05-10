@@ -106,7 +106,8 @@ class Site(Site):
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
         # tb.add_action(self.actors.courses.MyActivities)
-        tb.add_action(self.actors.meetings.MyMeetings)
+        if 'meetings' in self.plugins:
+            tb.add_action(self.actors.meetings.MyMeetings)
         # tb.add_action(self.modules.deploy.MyMilestones)
         # tb.add_action(self.actors.tickets.MyTickets)
         # tb.add_action(self.actors.tickets.TicketsToTriage)
