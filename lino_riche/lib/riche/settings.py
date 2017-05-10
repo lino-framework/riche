@@ -61,8 +61,8 @@ class Site(Site):
         yield 'lino_riche.lib.topics'
         yield 'lino_xl.lib.votes'
         yield 'lino_riche.lib.tickets'
-        yield 'lino_xl.lib.faculties'
-        #yield 'lino_xl.lib.deploy'
+        # yield 'lino_xl.lib.faculties'
+        # yield 'lino_xl.lib.deploy'
         yield 'lino_riche.lib.clocking'
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.blogs'
@@ -92,8 +92,9 @@ class Site(Site):
         super(Site, self).setup_plugins()
         # self.plugins.comments.configure(
         #     commentable_model='tickets.Ticket')
-        self.plugins.faculties.configure(
-            demander_model='tickets.Ticket')
+        if 'faculties' in self.plugins:
+            self.plugins.faculties.configure(
+                demander_model='tickets.Ticket')
         # self.plugins.tickets.configure(
         #     site_model='cal.Room',
         #     milestone_model='courses.Course')
