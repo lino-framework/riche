@@ -2,7 +2,7 @@
 # Copyright 2016-2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
-"""Database models specific for the Team variant of Lino Noi.
+"""Database models specific for the Riche variant of Lino Noi.
 
 Defines a customized :class:`TicketDetail`.
 
