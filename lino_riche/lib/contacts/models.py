@@ -96,7 +96,7 @@ class CompanyDetail(CompanyDetail):
     # """, label=dd.plugins.faculties.verbose_name)
 
     tickets = dd.Panel("""
-    tickets.TicketsByEndUser tickets.ProjectsByCompany
+    tickets.TicketsByEndUser tickets.ProjectsByCompany tickets.SitesByPartner
     """, label=dd.plugins.tickets.verbose_name)
 
 
