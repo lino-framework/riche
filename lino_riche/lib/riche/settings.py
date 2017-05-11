@@ -117,7 +117,7 @@ class Site(Site):
         tb.add_action(self.modules.tickets.RefTickets)
         tb.add_action(self.actors.tickets.AllTickets)
         tb.add_action(
-            self.actors.tickets.AllTickets.insert_action,
+            self.actors.tickets.MyTickets.insert_action,
             label=_("Submit a ticket"))
 
         a = self.actors.users.MySettings.default_action

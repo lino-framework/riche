@@ -18,7 +18,6 @@ all.
 from lino.core.roles import UserRole, SiteAdmin
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
-from lino_xl.lib.courses.roles import CoursesUser
 from lino.modlib.office.roles import OfficeStaff, OfficeUser
 # from lino.modlib.comments.roles import CommentsReader
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
@@ -31,7 +30,7 @@ from lino.modlib.users.choicelists import UserTypes
 from django.utils.translation import ugettext_lazy as _
 
 
-class EndUser(OfficeUser, VotesUser, TicketsUser, CommentsUser):
+class EndUser(OfficeUser, VotesUser, TicketsUser, CommentsUser,):
     """An **end user** is somebody who uses our software and may report
     tickets, but won't work on them.
 
@@ -39,8 +38,7 @@ class EndUser(OfficeUser, VotesUser, TicketsUser, CommentsUser):
     pass
 
 
-class Consultant(EndUser, Searcher, Worker, ExcerptsUser,
-                 ContactsUser, CoursesUser):
+class Consultant(EndUser, Searcher,ContactsUser,ExcerptsUser,Worker    ):
     """A **consultant** is somebody who may both report tickets and work
     on them.
 
