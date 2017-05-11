@@ -10,9 +10,19 @@ Defines a customized :class:`TicketDetail`.
 
 from lino_xl.lib.tickets.models import *
 from lino.api import _, pgettext
+from  lino_xl.lib.tickets.roles import Searcher
 
 Project._meta.verbose_name = _("Project")
 
+
+class Ticket(Ticket):
+
+    @classmethod
+    def get_request_queryset(cls, ar):
+        qs = super(Ticket, cls).get_request_queryset(ar)
+        if ar.get_user().profile.has_required_roles([Searcher]):
+            qs.filter()
+        return qs
 
 @dd.python_2_unicode_compatible
 class Site(dd.Model):
@@ -46,7 +56,7 @@ class TicketDetail(TicketDetail):
     general1 = """
     summary:40 ticket_type id:6
     user:12 end_user:12 deadline
-    site #topic project
+    site topic project
     workflow_buttons:30 #private
     bottom_box
     """
