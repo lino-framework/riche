@@ -18,7 +18,9 @@ class Plugin(Plugin):
     """
     site_model = 'tickets.Site'
 
-    extends_models = ['Ticket']
+    extends_models = ['Ticket',
+                      'Project'
+                      ]
 
     needs_plugins = [
         'lino_xl.lib.excerpts',

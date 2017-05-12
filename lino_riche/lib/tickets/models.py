@@ -11,17 +11,26 @@ Defines a customized :class:`TicketDetail`.
 from lino_xl.lib.tickets.models import *
 from lino.api import _, pgettext
 from  lino_xl.lib.tickets.roles import Searcher
+from django.db.models import Q
 
-Project._meta.verbose_name = _("Project")
-
-
-class Ticket(Ticket):
+class Project(Project):
 
     @classmethod
     def get_request_queryset(cls, ar):
+        qs = super(Project, cls).get_request_queryset(ar)
+        if not ar.get_user().profile.has_required_roles([Searcher]):
+            coms = [x.company for x in ar.get_user().rolesbyperson.all()]
+            print coms
+            qs = qs.filter(company__in=coms)
+        return qs
+
+class Ticket(Ticket):
+    @classmethod
+    def get_request_queryset(cls, ar):
         qs = super(Ticket, cls).get_request_queryset(ar)
-        if ar.get_user().profile.has_required_roles([Searcher]):
-            qs.filter()
+        if not ar.get_user().profile.has_required_roles([Searcher]):
+            coms = [x.company for x in ar.get_user().rolesbyperson.all()]
+            qs = qs.filter(Q(project__company__in=coms) | Q(user=ar.get_user()))
         return qs
 
 @dd.python_2_unicode_compatible
