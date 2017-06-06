@@ -76,7 +76,6 @@ lino_riche.lib.users
 lino_riche.lib.users.fixtures
 lino_riche.lib.cal
 lino_riche.lib.cal.fixtures
-lino_riche.lib.courses
 lino_riche.lib.tickets
 lino_riche.lib.clocking
 lino_riche.lib.clocking.fixtures
